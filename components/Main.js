@@ -68,7 +68,7 @@ export default class Main extends React.Component {
             <Card
               title='Question'
               image={require('../assets/question_mark.png')}>
-              <Text style={{marginBottom: 10}}>
+              <Text style={{marginBottom: 10, fontSize: 30, fontWeight: 'bold'}}>
               {this.state.currentQuestion.question}
               </Text>
             </Card>
@@ -86,6 +86,7 @@ export default class Main extends React.Component {
               title='Previous Question'
               onPress={() => console.log('previous question pressed')}
             /> : null}
+            <View style={{paddingTop: 50}}>
             <Button
               raised
               backgroundColor="blue"
@@ -93,6 +94,7 @@ export default class Main extends React.Component {
               title='Back to Home'
               onPress={() => Actions.root()}
             />
+            </View>
           </View>
         }
       </View>

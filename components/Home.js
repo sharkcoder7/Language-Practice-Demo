@@ -7,15 +7,17 @@ export default class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Language Dice</Text>
-        <Text>Select Your Language</Text>
-        <Button
-          raised
-          backgroundColor="blue"
-          icon={{name: 'language'}}
-          title='French'
-          onPress={() => Actions.main()}
-        />
+        <Text style={{fontSize: 30, fontWeight: 'bold', color: 'white', padding: 50}}>Language Dice</Text>
+        <View>
+          <Text style={{padding: 25, fontSize: 20,}}>Select Your Language:</Text>
+          <Button
+            raised
+            backgroundColor="blue"
+            icon={{name: 'language'}}
+            title='French'
+            onPress={() => Actions.main()}
+          />
+        </View>
       </View>
     )
   }

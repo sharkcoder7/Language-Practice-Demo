@@ -4,41 +4,199 @@
     "question": "Bonjour, comment allez vous?",
     "question_alt": null,
     "translation": "Hello, how are you?",
-    "translation_alt": null
+    "translation_alt": null,
+    "difficulty": "beginner"
   },
   {
     "id": 2,
     "question": "Ou se trouvent les toilettes?",
     "question_alt": null,
     "translation": "Where is the bathroom?",
-    "translation_alt": null
+    "translation_alt": null,
+    "difficulty": "intermediate"
   },
   {
     "id": 3,
     "question": "Ca Va?",
     "question_alt": null,
     "translation": "How are you?",
-    "translation_alt": "Are you all right?"
+    "translation_alt": "Are you all right?",
+    "difficulty": "beginner"
   },
   {
     "id": 4,
     "question": "Est-ce que tu apprends francais maintenant?",
     "question_alt": null,
     "translation": "Are you currently learning French?",
-    "translation_alt": null
+    "translation_alt": null,
+    "difficulty": "beginner"
   },
   {
     "id": 5,
     "question": "Quelle heure est-til?",
     "question_alt": null,
     "translation": "What time is it?",
-    "translation_alt": null
+    "translation_alt": null,
+    "difficulty": "beginner"
   },
   {
     "id": 6,
     "question": "Alors, a tout a l'heure!",
     "question_alt": "Alors, Au revoir!",
     "translation": "Okay, see you later!",
-    "translation_alt": "Okay, goodbye!"
+    "translation_alt": "Okay, goodbye!",
+    "difficulty": "beginner"
+  },
+  {
+    "id": 7,
+    "question": "Quels sont vos aliments préférés?",
+    "question_alt": null,
+    "translation": "What are your favorite foods?",
+    "translation_alt": null,
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 8,
+    "question": "Quelle musique aimes-tu?",
+    "question_alt": null,
+    "translation": "What music do you like?",
+    "translation_alt": null,
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 9,
+    "question": "As-tu de freres ou de soeurs?",
+    "question_alt": null,
+    "translation": "Do you have any brothers or sisters?",
+    "translation_alt": null,
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 10,
+    "question": "Quelle est votre émission de télévision préférée?",
+    "question_alt": null,
+    "translation": "What is your favorite TV show?",
+    "translation_alt": null,
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 11,
+    "question": "Quelles langues parles-tu?",
+    "question_alt": null,
+    "translation": "What languages do you speak?",
+    "translation_alt": null,
+    "difficulty": "beginner"
+  },
+  {
+    "id": 12,
+    "question": "Quelles sont vos applications préférée?",
+    "question_alt": null,
+    "translation": "What are your favorite apps?",
+    "translation_alt": null,
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 13,
+    "question": "Quel est votre endroit préféré?",
+    "question_alt": null,
+    "translation": "What is your favorite place?",
+    "translation_alt": null,
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 14,
+    "question": "Aimes-tu lire?",
+    "question_alt": null,
+    "translation": "Do you like to read?",
+    "translation_alt": null,
+    "difficulty": "beginner"
+  },
+  {
+    "id": 15,
+    "question": "Qu’aimes-tu faire?",
+    "question_alt": null,
+    "translation": "What do you like to do in your free time?",
+    "translation_alt": null,
+    "difficulty": "beginner"
+  },
+  {
+    "id": 16,
+    "question": "Avez-vous des animaux domestiques?",
+    "question_alt": null,
+    "translation": "Do you have any pets?",
+    "translation_alt": null,
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 17,
+    "question": "Qu’aimeriez-vous boire??",
+    "question_alt": null,
+    "translation": "What is your favorite drink?",
+    "translation_alt": null,
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 18,
+    "question": "Qu’aimes-tu faire?",
+    "question_alt": null,
+    "translation": "What do you like to do in your free time?",
+    "translation_alt": null,
+    "difficulty": "beginner"
+  },
+  {
+    "id": 19,
+    "question": "Quel est le travail de tes rêves?",
+    "question_alt": null,
+    "translation": "What is your dream job?",
+    "translation_alt": null,
+    "difficulty": "advanced"
+  },
+  {
+    "id": 20,
+    "question": "Qu’aimes-tu faire?",
+    "question_alt": null,
+    "translation": "What do you like to do in your free time?",
+    "translation_alt": null,
+    "difficulty": "beginner"
+  },
+  {
+    "id": 21,
+    "question": "Qui est votre acteur/actrice préféré??",
+    "question_alt": null,
+    "translation": "Who is your favorite actor or actress?",
+    "translation_alt": null,
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 22,
+    "question": "Est-ce que tu sort avec quelqu’un?",
+    "question_alt": null,
+    "translation": "Are you dating anyone?",
+    "translation_alt": null,
+    "difficulty": "advanced"
+  },
+  {
+    "id": 23,
+    "question": "Que changeriez-vous de vous-même et pourquoi?",
+    "question_alt": null,
+    "translation": "What would you change about yourself and why?",
+    "translation_alt": null,
+    "difficulty": "advanced"
+  },
+  {
+    "id": 24,
+    "question": "Quels jeux aimez-vous jouer?",
+    "question_alt": null,
+    "translation": "What games do you like to play",
+    "translation_alt": null,
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 25,
+    "question": "Voulez-vous vous retrouver?",
+    "question_alt": null,
+    "translation": "Do you want to meet again?",
+    "translation_alt": null,
+    "difficulty": "beginner"
   }
 ]
