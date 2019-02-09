@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, View, TouchableHighlight} from 'react-native';
 import {Button, Card} from 'react-native-elements';
 import {Actions} from 'react-native-router-flux';
 import Questions from '../json_files/questions';
@@ -13,8 +13,10 @@ export default class Main extends React.Component {
       remainingQuestions: [],
       previousQuestions: [],
       currentQuestion: null,
+      currentNumber: 0,
       currentTranslationAlt: null,
-      showStartButton: true
+      showStartButton: true,
+      showTranslation: false,
     }
   }
 
@@ -27,6 +29,7 @@ export default class Main extends React.Component {
     const currentQuestion = this.state.remainingQuestions[0];
     const newRemaining = this.state.remainingQuestions.slice(1);
     this.setState({currentQuestion});
+    this.setState({currentNumber: this.state.currentNumber + 1});
     this.setState({remainingQuestions: newRemaining});
     this.setState({showStartButton: false});
   }
@@ -36,20 +39,27 @@ export default class Main extends React.Component {
     this.setState({previousQuestions: newPrevious});
     if(this.state.remainingQuestions.length === 1) {
       const currentQuestion = this.state.remainingQuestions[0];
+      this.setState({currentNumber: this.state.currentNumber + 1});
       const randomized = Randomizer.randomizeArray(this.state.questions);
       this.setState({remainingQuestions: randomized});
       this.setState({currentQuestion});
     } else {
       const currentQuestion = this.state.remainingQuestions[0];
+      this.setState({currentNumber: this.state.currentNumber + 1});
       const newRemaining = this.state.remainingQuestions.slice(1);
       this.setState({remainingQuestions: newRemaining});
       this.setState({currentQuestion});
     }
   }
 
+  toggleTranslation = () => {
+    this.setState({showTranslation: !this.state.showTranslation});
+  }
+
   render() {
     console.log(this.state.remainingQuestions, 'remaining questions')
     console.log(this.state.previousQuestions, 'previous questions')
+    console.log(this.state.showTranslation, 'translation show')
     return (
       <View style={styles.container}>
         {
@@ -65,13 +75,22 @@ export default class Main extends React.Component {
           </View>
           :
           <View style={styles.container}>
-            <Card
-              title='Question'
-              image={require('../assets/question_mark.png')}>
-              <Text style={{marginBottom: 10, fontSize: 30, fontWeight: 'bold'}}>
-              {this.state.currentQuestion.question}
-              </Text>
-            </Card>
+            <TouchableHighlight onPress={this.toggleTranslation}>
+              <View>
+                <Card
+                  title={!this.state.showTranslation? `Question #${this.state.currentNumber}` : `Question #${this.state.currentNumber} Translated`}
+                  image={require('../assets/question_mark.png')}>
+                  { !this.state.showTranslation ? 
+                    <Text style={{marginBottom: 10, fontSize: 30, fontWeight: 'bold'}}>
+                      {this.state.currentQuestion.question}
+                    </Text> :
+                    <Text style={{marginBottom: 10, fontSize: 30, fontWeight: 'bold'}}>
+                      {this.state.currentQuestion.translation}
+                    </Text>
+                  }
+                </Card>
+            </View>
+            </TouchableHighlight>
             <Button
               raised
               backgroundColor="green"
