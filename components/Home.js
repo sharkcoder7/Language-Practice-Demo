@@ -8,13 +8,13 @@ export default class Home extends React.Component {
     return (
       <View style={styles.container}>
         <Text>Language Dice</Text>
-        <Text>Select Language</Text>
+        <Text>Select Your Language</Text>
         <Button
-        raised
-        backgroundColor="blue"
-        icon={{name: 'language'}}
-        title='French'
-        onPress={() => Actions.main()}
+          raised
+          backgroundColor="blue"
+          icon={{name: 'language'}}
+          title='French'
+          onPress={() => Actions.main()}
         />
       </View>
     )

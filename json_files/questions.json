@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "question": "Bonjour, comment allez vous?",
+    "question_alt": null,
+    "translation": "Hello, how are you?",
+    "translation_alt": null
+  },
+  {
+    "id": 2,
+    "question": "Ou se trouvent les toilettes?",
+    "question_alt": null,
+    "translation": "Where is the bathroom?",
+    "translation_alt": null
+  },
+  {
+    "id": 3,
+    "question": "Ca Va?",
+    "question_alt": null,
+    "translation": "How are you?",
+    "translation_alt": "Are you all right?"
+  },
+  {
+    "id": 4,
+    "question": "Est-ce que tu apprends francais maintenant?",
+    "question_alt": null,
+    "translation": "Are you currently learning French?",
+    "translation_alt": null
+  },
+  {
+    "id": 5,
+    "question": "Quelle heure est-til?",
+    "question_alt": null,
+    "translation": "What time is it?",
+    "translation_alt": null
+  },
+  {
+    "id": 6,
+    "question": "Alors, a tout a l'heure!",
+    "question_alt": "Alors, Au revoir!",
+    "translation": "Okay, see you later!",
+    "translation_alt": "Okay, goodbye!"
+  }
+]
