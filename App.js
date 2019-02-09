@@ -1,23 +1,27 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {Router, Scene} from 'react-native-router-flux';
+import Home from './components/Home';
+import Main from './components/Main';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
+      <Router>
+        <Scene>
+          <Scene 
+            key="root" 
+            component={Home} 
+            title="Home Page" 
+            hideNavBar={true} 
+            initial
+          />
+          <Scene 
+            key="main" 
+            component={Main} 
+            title="Practice"
+          />
+        </Scene>
+      </Router>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
