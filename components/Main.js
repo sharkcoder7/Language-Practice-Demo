@@ -13,7 +13,7 @@ export default class Main extends React.Component {
       remainingQuestions: [],
       previousQuestions: [],
       currentQuestion: null,
-      currentIndex: 0,
+      currentNumber: 0,
       currentTranslationAlt: null,
       showStartButton: true,
       showTranslation: false,
@@ -29,36 +29,27 @@ export default class Main extends React.Component {
     const currentQuestion = this.state.remainingQuestions[0];
     const newRemaining = this.state.remainingQuestions.slice(1);
     this.setState({currentQuestion});
+    this.setState({currentNumber: this.state.currentNumber + 1});
     this.setState({remainingQuestions: newRemaining});
     this.setState({showStartButton: false});
-    this.setState({previousQuestions: [currentQuestion]});
   }
 
   randomQuestion = () => {
-    const newPrevious = this.state.previousQuestions.concat([this.state.remainingQuestions[0]]);
+    const newPrevious = this.state.previousQuestions.concat([this.state.currentQuestion]);
     this.setState({previousQuestions: newPrevious});
-    this.setState({currentIndex: newPrevious.length - 1});
-    const currentQuestion = this.state.remainingQuestions[0];
-    this.setState({currentQuestion});
-    this.setState({showTranslation: false});
     if(this.state.remainingQuestions.length === 1) {
+      const currentQuestion = this.state.remainingQuestions[0];
+      this.setState({currentNumber: this.state.currentNumber + 1});
       const randomized = Randomizer.randomizeArray(this.state.questions);
       this.setState({remainingQuestions: randomized});
+      this.setState({currentQuestion});
     } else {
+      const currentQuestion = this.state.remainingQuestions[0];
+      this.setState({currentNumber: this.state.currentNumber + 1});
       const newRemaining = this.state.remainingQuestions.slice(1);
       this.setState({remainingQuestions: newRemaining});
+      this.setState({currentQuestion});
     }
-  }
-
-  traverseQuestions = (action) => {
-    let newIndex;
-    if(action === 'previous') {
-      newIndex = this.state.currentIndex - 1;
-    } else if(action === 'next') {
-      newIndex = this.state.currentIndex + 1;
-    }
-    this.setState({currentQuestion: this.state.previousQuestions[newIndex]});
-    this.setState({currentIndex: newIndex});
   }
 
   toggleTranslation = () => {
@@ -68,7 +59,7 @@ export default class Main extends React.Component {
   render() {
     console.log(this.state.remainingQuestions, 'remaining questions')
     console.log(this.state.previousQuestions, 'previous questions')
-    console.log(this.state.currentIndex, 'index')
+    console.log(this.state.showTranslation, 'translation show')
     return (
       <View style={styles.container}>
         {
@@ -87,7 +78,7 @@ export default class Main extends React.Component {
             <TouchableHighlight onPress={this.toggleTranslation}>
               <View>
                 <Card
-                  title={!this.state.showTranslation? `Question #${this.state.currentIndex + 1}` : `Question #${this.state.currentIndex + 1} Translated`}
+                  title={!this.state.showTranslation? `Question #${this.state.currentNumber}` : `Question #${this.state.currentNumber} Translated`}
                   image={require('../assets/question_mark.png')}>
                   { !this.state.showTranslation ? 
                     <Text style={{marginBottom: 10, fontSize: 30, fontWeight: 'bold'}}>
@@ -107,28 +98,21 @@ export default class Main extends React.Component {
               title='Next Random Question'
               onPress={this.randomQuestion}
             />
-            {this.state.previousQuestions.length > this.state.currentIndex + 1 ? <Button
-              raised
-              backgroundColor="#66CDAA"
-              icon={{name: 'check'}}
-              title='Next Question'
-              onPress={() => this.traverseQuestions('next')}
-            /> : null}
-            {this.state.currentIndex > 0 ? <Button
+            {this.state.previousQuestions.length ? <Button
               raised
               backgroundColor="red"
               icon={{name: 'replay'}}
               title='Previous Question'
-              onPress={() => this.traverseQuestions('previous')}
+              onPress={() => console.log('previous question pressed')}
             /> : null}
-            <View style={{paddingTop: 30}}>
-              <Button
-                raised
-                backgroundColor="blue"
-                icon={{name: 'home'}}
-                title='Back to Home'
-                onPress={() => Actions.root()}
-              />
+            <View style={{paddingTop: 50}}>
+            <Button
+              raised
+              backgroundColor="blue"
+              icon={{name: 'home'}}
+              title='Back to Home'
+              onPress={() => Actions.root()}
+            />
             </View>
           </View>
         }
