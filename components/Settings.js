@@ -7,6 +7,9 @@ export default class Settings extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <Image source={require('../assets/background.jpeg')}
+          style={{flex: 1, position: 'absolute'}}
+        />
         <Text style={styles.text}>Select Your Difficulty:</Text>
         <View style={styles.buttonAll}>
           <Button
@@ -51,7 +54,7 @@ export default class Settings extends React.Component {
         <View style={styles.buttonHome}>
           <Button
             raised
-            backgroundColor="blue"
+            backgroundColor="#6495ED"
             icon={{name: 'home'}}
             title='Back to Home'
             onPress={() => Actions.root()}
@@ -65,7 +68,7 @@ export default class Settings extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#6495ED',
+    backgroundColor: 'rgba(52, 52, 52, 0.8)',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -84,6 +87,7 @@ const styles = StyleSheet.create({
     width: 200
   },
   buttonHome: {
-    paddingTop: 30
+    paddingTop: 30,
+    width: 185
   }
 });

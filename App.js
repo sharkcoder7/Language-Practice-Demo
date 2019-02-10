@@ -9,21 +9,23 @@ export default class App extends React.Component {
     return (
       <Router>
         <Scene>
-          <Scene 
-            key="root" 
-            component={Home} 
-            title="Home Page" 
-            hideNavBar={true} 
+          <Scene
+            key="root"
+            component={Home}
+            title="Home Page"
+            hideNavBar={true}
             initial
           />
-          <Scene 
-            key="settings" 
-            component={Settings} 
+          <Scene
+            key="settings"
+            component={Settings}
+            hideNavBar={true}
             title="Settings"
           />
-          <Scene 
-            key="main" 
-            component={Main} 
+          <Scene
+            key="main"
+            component={Main}
+            hideNavBar={true}
             title="Practice"
           />
         </Scene>

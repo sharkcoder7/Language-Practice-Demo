@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Image, Text, View, TouchableOpacity} from 'react-native';
 import {Button, Card, ButtonGroup} from 'react-native-elements';
 import {Actions} from 'react-native-router-flux';
 import Beginner from '../data/beginner';
@@ -100,6 +100,9 @@ export default class Main extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <Image source={require('../assets/background.jpeg')}
+          style={{flex: 1, position: 'absolute'}}
+        />
         <ButtonGroup
           buttons={['Previous', 'History', 'Next']}
           selectedBackgroundColor="blue"
@@ -107,16 +110,17 @@ export default class Main extends React.Component {
         />
         <TouchableOpacity onPress={this.toggleTranslation}>
           <Card
-            containerStyle={{width: 300, height: 275}}
-            imageStyle={{width: 75, height: 75}}
-            imageWrapperStyle={{alignItems: 'center'}}
+            containerStyle={styles.card}
             title={!this.state.showTranslation ? `Question #${this.state.currentIndex + 1}` : `Question #${this.state.currentIndex + 1} Translated`}
-            image={require('../assets/question_mark.png')}>
+            titleStyle={{color: 'white', fontSize: 20}}
+            image={require('../assets/question-mark.png')}
+            imageStyle={{width: 75, height: 75}}
+            imageWrapperStyle={{alignItems: 'center'}}>
             { !this.state.showTranslation ? 
-              <Text style={{marginBottom: 10, fontSize: 30, fontWeight: 'bold'}}>
+              <Text style={styles.cardText}>
                 {this.state.currentQuestion ? this.state.currentQuestion.question : null}
               </Text> :
-              <Text style={{marginBottom: 10, fontSize: 30, fontWeight: 'bold'}}>
+              <Text style={styles.cardText}>
                 {this.state.currentQuestion ? this.state.currentQuestion.translation : null}
               </Text>
             }
@@ -135,7 +139,7 @@ export default class Main extends React.Component {
         <View style={{paddingTop: 30}}>
           <Button
             raised
-            backgroundColor="blue"
+            backgroundColor="#6495ED"
             icon={{name: 'home'}}
             title='Back to Home'
             onPress={() => Actions.root()}
@@ -156,8 +160,19 @@ export default class Main extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#6495ED',
+    backgroundColor: 'rgba(52, 52, 52, 0.8)',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  card: {
+    width: 300, 
+    height: 275,
+    backgroundColor:'rgba(52, 52, 52, 0.1)'
+  },
+  cardText: {
+    marginBottom: 10,
+    color: 'white',
+    fontSize: 30, 
+    fontWeight: 'bold'
+  }
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View, Modal, ScrollView} from 'react-native';
+import {Text, View, Modal, ScrollView} from 'react-native';
 import {List, ListItem} from 'react-native-elements';
 import {Button} from 'react-native-elements';
 
@@ -7,7 +7,6 @@ export default class ModalHistory extends React.Component {
   render() {
     return (
       <Modal
-        style={{backgroundColor: '#6495ED'}}
         animationType='slide'
         visible={this.props.showModalHistory} 
         onRequestClose={this.props.toggleModalHistory}>
@@ -25,8 +24,8 @@ export default class ModalHistory extends React.Component {
                   key={i}
                   title={(i + 1) + '  ' + question.question}
                   subtitle={question.translation}
-                  underlayColor='blue'
-                  containerStyle={i === this.props.currentIndex ? {backgroundColor: 'yellow'} : {}}
+                  underlayColor='#6495ED'
+                  containerStyle={i === this.props.currentIndex ? {backgroundColor: '#ADD8E6'} : {}}
                   onPress={() => {
                     this.props.traverseQuestions(i);
                     this.props.toggleModalHistory();
@@ -40,9 +39,3 @@ export default class ModalHistory extends React.Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#6495ED'
-  },
-});
