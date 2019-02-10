@@ -1,9 +1,10 @@
 import React from 'react';
-import {StyleSheet, Text, View, TouchableHighlight} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {Button, Card} from 'react-native-elements';
 import {Actions} from 'react-native-router-flux';
 import Questions from '../json_files/questions';
 import Randomizer from 'react-randomizer';
+import ModalHistory from './ModalHistory';
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -17,10 +18,20 @@ export default class Main extends React.Component {
       currentTranslationAlt: null,
       showStartButton: true,
       showTranslation: false,
+      showModalHistory: false
     }
   }
 
   componentDidMount() {
+    if(this.props.difficulty === 'all') {
+
+    } else if(this.props.difficulty === 'beginner') {
+
+    } else if(this.props.difficulty === 'intermediate') {
+
+    } else if(this.props.difficulty === 'advanced') {
+
+    }
     const questions = Randomizer.randomizeArray(Questions);
     this.setState({questions, remainingQuestions: questions});
   }
@@ -50,12 +61,14 @@ export default class Main extends React.Component {
     }
   }
 
-  traverseQuestions = (action) => {
+  traverseQuestions = action => {
     let newIndex;
     if(action === 'previous') {
       newIndex = this.state.currentIndex - 1;
     } else if(action === 'next') {
       newIndex = this.state.currentIndex + 1;
+    } else {
+      newIndex = action;
     }
     this.setState({currentQuestion: this.state.previousQuestions[newIndex]});
     this.setState({currentIndex: newIndex});
@@ -65,10 +78,11 @@ export default class Main extends React.Component {
     this.setState({showTranslation: !this.state.showTranslation});
   }
 
+  toggleModalHistory = () => {
+    this.setState({showModalHistory: !this.state.showModalHistory});
+  }
+
   render() {
-    console.log(this.state.remainingQuestions, 'remaining questions')
-    console.log(this.state.previousQuestions, 'previous questions')
-    console.log(this.state.currentIndex, 'index')
     return (
       <View style={styles.container}>
         {
@@ -84,9 +98,11 @@ export default class Main extends React.Component {
           </View>
           :
           <View style={styles.container}>
-            <TouchableHighlight onPress={this.toggleTranslation}>
+            <TouchableOpacity onPress={this.toggleTranslation}>
               <View>
                 <Card
+                  imageStyle={{width: 100, height: 100}}
+                  imageWrapperStyle={{alignItems: 'center'}}
                   title={!this.state.showTranslation? `Question #${this.state.currentIndex + 1}` : `Question #${this.state.currentIndex + 1} Translated`}
                   image={require('../assets/question_mark.png')}>
                   { !this.state.showTranslation ? 
@@ -99,7 +115,7 @@ export default class Main extends React.Component {
                   }
                 </Card>
             </View>
-            </TouchableHighlight>
+            </TouchableOpacity>
             <Button
               raised
               backgroundColor="green"
@@ -113,6 +129,7 @@ export default class Main extends React.Component {
               icon={{name: 'check'}}
               title='Next Question'
               onPress={() => this.traverseQuestions('next')}
+              onLongPress={this.toggleModalHistory}
             /> : null}
             {this.state.currentIndex > 0 ? <Button
               raised
@@ -120,6 +137,7 @@ export default class Main extends React.Component {
               icon={{name: 'replay'}}
               title='Previous Question'
               onPress={() => this.traverseQuestions('previous')}
+              onLongPress={this.toggleModalHistory}
             /> : null}
             <View style={{paddingTop: 30}}>
               <Button
@@ -132,6 +150,12 @@ export default class Main extends React.Component {
             </View>
           </View>
         }
+        <ModalHistory 
+          showModalHistory={this.state.showModalHistory}
+          previousQuestions={this.state.previousQuestions} 
+          toggleModalHistory={this.toggleModalHistory}
+          traverseQuestions={this.traverseQuestions}
+        />
       </View>
     )
   }
