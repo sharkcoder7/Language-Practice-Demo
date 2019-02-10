@@ -17,7 +17,7 @@ export default class Home extends React.Component {
             backgroundColor="blue"
             icon={{name: 'language'}}
             title='French'
-            onPress={() => Actions.main()}
+            onPress={() => Actions.settings()}
           />
         </View>
       </View>

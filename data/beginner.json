@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "question": "Bonjour, comment allez vous?",
+    "question_alt": null,
+    "translation": "Hello, how are you?",
+    "translation_alt": null,
+    "difficulty": "beginner"
+  },
+  {
+    "id": 2,
+    "question": "Quelles langues parles-tu?",
+    "question_alt": null,
+    "translation": "What languages do you speak?",
+    "translation_alt": null,
+    "difficulty": "beginner"
+  },
+  {
+    "id": 3,
+    "question": "Ca Va?",
+    "question_alt": null,
+    "translation": "How are you?",
+    "translation_alt": "Are you all right?",
+    "difficulty": "beginner"
+  },
+  {
+    "id": 4,
+    "question": "Est-ce que tu apprends francais maintenant?",
+    "question_alt": null,
+    "translation": "Are you currently learning French?",
+    "translation_alt": null,
+    "difficulty": "beginner"
+  },
+  {
+    "id": 5,
+    "question": "Quelle heure est-til?",
+    "question_alt": null,
+    "translation": "What time is it?",
+    "translation_alt": null,
+    "difficulty": "beginner"
+  },
+  {
+    "id": 6,
+    "question": "Alors, a tout a l'heure!",
+    "question_alt": "Alors, Au revoir!",
+    "translation": "Okay, see you later!",
+    "translation_alt": "Okay, goodbye!",
+    "difficulty": "beginner"
+  },
+  {
+    "id": 7,
+    "question": "Aimes-tu lire?",
+    "question_alt": null,
+    "translation": "Do you like to read?",
+    "translation_alt": null,
+    "difficulty": "beginner"
+  },
+  {
+    "id": 8,
+    "question": "Qu’aimes-tu faire?",
+    "question_alt": null,
+    "translation": "What do you like to do in your free time?",
+    "translation_alt": null,
+    "difficulty": "beginner"
+  },
+  {
+    "id": 9,
+    "question": "Quel est le travail de tes rêves?",
+    "question_alt": null,
+    "translation": "What is your dream job?",
+    "translation_alt": null,
+    "difficulty": "advanced"
+  },
+  {
+    "id": 10,
+    "question": "Voulez-vous vous retrouver?",
+    "question_alt": null,
+    "translation": "Do you want to meet again?",
+    "translation_alt": null,
+    "difficulty": "beginner"
+  }
+]

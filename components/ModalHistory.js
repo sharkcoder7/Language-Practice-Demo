@@ -11,15 +11,15 @@ export default class ModalHistory extends React.Component {
         animationType='slide'
         visible={this.props.showModalHistory} 
         onRequestClose={this.props.toggleModalHistory}>
-          <Text style={{marginTop: 30, textAlign: 'center'}}>Questions History</Text>
-          <Button
-            raised
-            title="Back"
-            onPress={this.props.toggleModalHistory}
-          />
-          <ScrollView>
+        <Text style={{marginTop: 30, marginBottom: 30, fontSize: 20, fontWeight: 'bold', textAlign: 'center'}}>Questions History</Text>
+        <Button
+          raised
+          title="Back"
+          onPress={this.props.toggleModalHistory}
+        />
+        <ScrollView>
           <List>
-            {this.props.previousQuestions.map((question, i) => {
+            {this.props.previousQuestions && this.props.previousQuestions.map((question, i) => {
               return (
                 <ListItem
                   key={i}
@@ -28,11 +28,11 @@ export default class ModalHistory extends React.Component {
                     this.props.traverseQuestions(i);
                     this.props.toggleModalHistory();
                   }}
-                >{question.question}</ListItem>
+                />
               )
             })}
           </List>
-          </ScrollView>
+        </ScrollView>
       </Modal>
     )
   }

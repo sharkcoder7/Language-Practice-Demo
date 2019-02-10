@@ -8,37 +8,45 @@ export default class Settings extends React.Component {
     return (
       <View style={styles.container}>
         <Text style={{padding: 25, fontSize: 20,}}>Select Your Difficulty:</Text>
-        <Button
-          raised
-          backgroundColor="#66CDAA"
-          title='All Difficulties'
-          onPress={() => Actions.main({difficulty: 'all'})}
-        />
+        <View style={{padding: 10}}>
+          <Button
+            raised
+            backgroundColor="#66CDAA"
+            title='All Difficulties'
+            icon={{name: 'forward'}}
+            onPress={() => Actions.main({difficulty: 'all'})}
+          />
+        </View>
         <Button
           raised
           backgroundColor="green"
           title='Beginner'
+          icon={{name: 'forward'}}
           onPress={() => Actions.main({difficulty: 'beginner'})}
         />
         <Button
           raised
           backgroundColor="#D2691E"
           title='Intermediate'
+          icon={{name: 'forward'}}
           onPress={() => Actions.main({difficulty: 'intermediate'})}
         />
         <Button
           raised
           backgroundColor="red"
           title='Advanced'
+          icon={{name: 'forward'}}
           onPress={() => Actions.main({difficulty: 'advanced'})}
         />
-        <Button
-          raised
-          backgroundColor="blue"
-          icon={{name: 'home'}}
-          title='Back to Home'
-          onPress={() => Actions.root()}
-        />
+        <View style={{paddingTop: 30}}>
+          <Button
+            raised
+            backgroundColor="blue"
+            icon={{name: 'home'}}
+            title='Back to Home'
+            onPress={() => Actions.root()}
+          />
+        </View>
       </View>
     )
   }
