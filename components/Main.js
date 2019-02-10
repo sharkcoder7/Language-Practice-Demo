@@ -121,7 +121,7 @@ export default class Main extends React.Component {
           raised
           backgroundColor="green"
           icon={{name: 'autorenew'}}
-          title='Generate Random Question'
+          title='Generate Another Question'
           onPress={this.randomQuestion}
         />
         <View style={{paddingTop: 30}}>
