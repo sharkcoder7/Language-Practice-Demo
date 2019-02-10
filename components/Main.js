@@ -17,7 +17,6 @@ export default class Main extends React.Component {
       previousQuestions: [],
       currentQuestion: null,
       currentIndex: 0,
-      currentTranslationAlt: null,
       showTranslation: false,
       showModalHistory: false
     }
@@ -36,17 +35,23 @@ export default class Main extends React.Component {
     }
     const currentQuestion = questions[0];
     const remainingQuestions = questions.slice(1);
-    this.setState({questions, remainingQuestions, currentQuestion});
-    this.setState({previousQuestions: [currentQuestion]});
+    this.setState({
+      questions, 
+      remainingQuestions, 
+      currentQuestion,
+      previousQuestions: [currentQuestion]
+    });
   }
 
   randomQuestion = () => {
     const newPrevious = this.state.previousQuestions.concat([this.state.remainingQuestions[0]]);
-    this.setState({previousQuestions: newPrevious});
-    this.setState({currentIndex: newPrevious.length - 1});
     const currentQuestion = this.state.remainingQuestions[0];
-    this.setState({currentQuestion});
-    this.setState({showTranslation: false});
+    this.setState({
+      previousQuestions: newPrevious,
+      currentIndex: newPrevious.length - 1,
+      currentQuestion,
+      showTranslation: false
+    });
     if(this.state.remainingQuestions.length === 1) {
       const randomized = Randomizer.randomizeArray(this.state.questions);
       this.setState({remainingQuestions: randomized});
@@ -78,8 +83,10 @@ export default class Main extends React.Component {
     } else {
       newIndex = action;
     }
-    this.setState({currentQuestion: this.state.previousQuestions[newIndex]});
-    this.setState({currentIndex: newIndex});
+    this.setState({
+      currentQuestion: this.state.previousQuestions[newIndex],
+      currentIndex: newIndex
+    });
   }
 
   toggleTranslation = () => {
@@ -99,31 +106,32 @@ export default class Main extends React.Component {
           onPress={this.handleTraversePress}
         />
         <TouchableOpacity onPress={this.toggleTranslation}>
-          <View>
-            <Card
-              containerStyle={{width: 300, height: 300}}
-              imageStyle={{width: 100, height: 100}}
-              imageWrapperStyle={{alignItems: 'center'}}
-              title={!this.state.showTranslation? `Question #${this.state.currentIndex + 1}` : `Question #${this.state.currentIndex + 1} Translated`}
-              image={require('../assets/question_mark.png')}>
-              { !this.state.showTranslation ? 
-                <Text style={{marginBottom: 10, fontSize: 30, fontWeight: 'bold'}}>
-                  {this.state.currentQuestion ? this.state.currentQuestion.question : null}
-                </Text> :
-                <Text style={{marginBottom: 10, fontSize: 30, fontWeight: 'bold'}}>
-                  {this.state.currentQuestion ? this.state.currentQuestion.translation : null}
-                </Text>
-              }
-            </Card>
-          </View>
+          <Card
+            containerStyle={{width: 300, height: 275}}
+            imageStyle={{width: 75, height: 75}}
+            imageWrapperStyle={{alignItems: 'center'}}
+            title={!this.state.showTranslation ? `Question #${this.state.currentIndex + 1}` : `Question #${this.state.currentIndex + 1} Translated`}
+            image={require('../assets/question_mark.png')}>
+            { !this.state.showTranslation ? 
+              <Text style={{marginBottom: 10, fontSize: 30, fontWeight: 'bold'}}>
+                {this.state.currentQuestion ? this.state.currentQuestion.question : null}
+              </Text> :
+              <Text style={{marginBottom: 10, fontSize: 30, fontWeight: 'bold'}}>
+                {this.state.currentQuestion ? this.state.currentQuestion.translation : null}
+              </Text>
+            }
+          </Card>
         </TouchableOpacity>
-        <Button
-          raised
-          backgroundColor="green"
-          icon={{name: 'autorenew'}}
-          title='Generate Another Question'
-          onPress={this.randomQuestion}
-        />
+        <View style={{paddingTop: 10}}>
+          <Button
+            raised
+            backgroundColor="green"
+            borderRadius={10}
+            icon={{name: 'autorenew'}}
+            title='Generate Another Question'
+            onPress={this.randomQuestion}
+          />
+        </View>
         <View style={{paddingTop: 30}}>
           <Button
             raised
@@ -138,6 +146,7 @@ export default class Main extends React.Component {
           previousQuestions={this.state.previousQuestions} 
           toggleModalHistory={this.toggleModalHistory}
           traverseQuestions={this.traverseQuestions}
+          currentIndex={this.state.currentIndex}
         />
       </View>
     )

@@ -78,5 +78,21 @@
     "translation": "Do you want to meet again?",
     "translation_alt": null,
     "difficulty": "beginner"
+  },
+  {
+    "id": 11,
+    "question": "Quel temps fait-il?",
+    "question_alt": null,
+    "translation": "How's the weather?",
+    "translation_alt": null,
+    "difficulty": "beginner"
+  },
+  {
+    "id": 12,
+    "question": "Quel est ton film prefere?",
+    "question_alt": null,
+    "translation": "What's your favorite movie?",
+    "translation_alt": null,
+    "difficulty": "beginner"
   }
 ]

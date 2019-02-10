@@ -12,6 +12,7 @@ export default class Settings extends React.Component {
           <Button
             raised
             backgroundColor="#66CDAA"
+            borderRadius={10}
             title='All Difficulties'
             icon={{name: 'forward'}}
             onPress={() => Actions.main({difficulty: 'all'})}
@@ -21,6 +22,7 @@ export default class Settings extends React.Component {
           <Button
             raised
             backgroundColor="green"
+            borderRadius={10}
             title='Beginner'
             icon={{name: 'forward'}}
             onPress={() => Actions.main({difficulty: 'beginner'})}
@@ -30,6 +32,7 @@ export default class Settings extends React.Component {
           <Button
             raised
             backgroundColor="#D2691E"
+            borderRadius={10}
             title='Intermediate'
             icon={{name: 'forward'}}
             onPress={() => Actions.main({difficulty: 'intermediate'})}
@@ -39,6 +42,7 @@ export default class Settings extends React.Component {
           <Button
             raised
             backgroundColor="red"
+            borderRadius={10}
             title='Advanced'
             icon={{name: 'forward'}}
             onPress={() => Actions.main({difficulty: 'advanced'})}

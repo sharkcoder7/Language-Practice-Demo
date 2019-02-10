@@ -83,7 +83,15 @@
     "id": 11,
     "question": "Quels jeux aimez-vous jouer?",
     "question_alt": null,
-    "translation": "What games do you like to play",
+    "translation": "What games do you like to play?",
+    "translation_alt": null,
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 12,
+    "question": "Qu'est-ce que vous faites?",
+    "question_alt": null,
+    "translation": "What is your profession?",
     "translation_alt": null,
     "difficulty": "intermediate"
   }
