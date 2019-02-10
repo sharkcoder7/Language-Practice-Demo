@@ -13,7 +13,7 @@ export default class ModalWebView extends React.Component {
         <Text style={{marginTop: 30, marginBottom: 30, fontSize: 20, fontWeight: 'bold', textAlign: 'center'}}>Google Translate</Text>
         <Button
           raised
-          title="Back"
+          title="Back to Practice"
           onPress={() => this.props.toggleModal('WebView')}
         />
         <WebView

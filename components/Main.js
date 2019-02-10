@@ -1,11 +1,13 @@
 import React from 'react';
-import {StyleSheet, Image, Text, View, TouchableOpacity} from 'react-native';
-import {Button, Card, ButtonGroup} from 'react-native-elements';
+import {StyleSheet, Image, Text, View} from 'react-native';
+import {Button, ButtonGroup} from 'react-native-elements';
 import {Actions} from 'react-native-router-flux';
 import Beginner from '../data/beginner';
 import Intermediate from '../data/intermediate';
 import Advanced from '../data/advanced';
 import Randomizer from 'react-randomizer';
+//Imported Components
+import CardDisplay from './CardDisplay';
 import ModalHistory from './ModalHistory';
 import ModalHints from './ModalHints';
 import ModalWebView from'./ModalWebView';
@@ -63,7 +65,7 @@ export default class Main extends React.Component {
     }
   }
 
-  handleTraversePress = buttonIndex => {
+  handleTraverse = buttonIndex => {
     const currentIndex = this.state.currentIndex;
     if(buttonIndex === 0 && currentIndex !== 0) {
       this.traverseQuestions('previous');
@@ -112,32 +114,19 @@ export default class Main extends React.Component {
         <ButtonGroup
           buttons={
             this.state.currentIndex === this.state.previousQuestions.length - 1 ? 
-            ['Previous', 'History', 'Generate Next'] : ['Previous', 'History', 'Next']
+            ['Previous', 'View History', 'Generate Next'] : ['Previous', 'View History', 'Next']
           }
           selectedBackgroundColor="blue"
-          onPress={this.handleTraversePress}
+          onPress={this.handleTraverse}
         />
-        <TouchableOpacity 
-          onPress={this.toggleTranslation}
-          onLongPress={() => this.toggleModal('Hints')}
-        >
-          <Card
-            containerStyle={styles.card}
-            title={!this.state.showTranslation ? `Question #${this.state.currentIndex + 1}` : `Question #${this.state.currentIndex + 1} Translated`}
-            titleStyle={{color: 'white', fontSize: 20}}
-            image={require('../assets/question-mark.png')}
-            imageStyle={{width: 75, height: 75}}
-            imageWrapperStyle={{alignItems: 'center'}}>
-            { !this.state.showTranslation ? 
-              <Text style={styles.cardText}>
-                {this.state.currentQuestion ? this.state.currentQuestion.question : null}
-              </Text> :
-              <Text style={styles.cardText}>
-                {this.state.currentQuestion ? this.state.currentQuestion.translation : null}
-              </Text>
-            }
-          </Card>
-        </TouchableOpacity>
+        <CardDisplay
+          currentIndex={this.state.currentIndex}
+          currentQuestion={this.state.currentQuestion}
+          showTranslation={this.state.showTranslation}
+          toggleTranslation={this.toggleTranslation}
+          toggleModal={this.toggleModal}
+          handleTraverse={this.handleTraverse}
+        />
         <View style={{paddingTop: 5}}>
           <Button
             raised
@@ -153,7 +142,7 @@ export default class Main extends React.Component {
             raised
             backgroundColor="orange"
             borderRadius={10}
-            title='Go to Google Translate'
+            title='Use Google Translate'
             onPress={() => this.toggleModal('WebView')}
           />
         </View>
@@ -194,16 +183,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(52, 52, 52, 0.8)',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  card: {
-    width: 300, 
-    height: 290,
-    backgroundColor:'rgba(52, 52, 52, 0.1)'
-  },
-  cardText: {
-    marginBottom: 10,
-    color: 'white',
-    fontSize: 30, 
-    fontWeight: 'bold'
   }
 });
