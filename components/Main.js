@@ -7,6 +7,8 @@ import Intermediate from '../data/intermediate';
 import Advanced from '../data/advanced';
 import Randomizer from 'react-randomizer';
 import ModalHistory from './ModalHistory';
+import ModalHints from './ModalHints';
+import ModalWebView from'./ModalWebView';
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -18,7 +20,7 @@ export default class Main extends React.Component {
       currentQuestion: null,
       currentIndex: 0,
       showTranslation: false,
-      showModalHistory: false
+      showModalHistory: false, showModalHints: false, showModalWebView: false
     }
   }
 
@@ -67,10 +69,14 @@ export default class Main extends React.Component {
       this.traverseQuestions('previous');
     }
     if(buttonIndex === 1) {
-      this.toggleModalHistory();
+      this.toggleModal('History');
     }
-    if(buttonIndex === 2 && currentIndex !== this.state.previousQuestions.length - 1) {
-      this.traverseQuestions('next');
+    if(buttonIndex === 2) {
+      if(currentIndex !== this.state.previousQuestions.length - 1) {
+        this.traverseQuestions('next');
+      } else {
+        this.randomQuestion();
+      }
     }
   }
 
@@ -93,8 +99,8 @@ export default class Main extends React.Component {
     this.setState({showTranslation: !this.state.showTranslation});
   }
 
-  toggleModalHistory = () => {
-    this.setState({showModalHistory: !this.state.showModalHistory});
+  toggleModal = name => {
+    this.setState({['showModal' + name]: !this.state['showModal' + name]});
   }
 
   render() {
@@ -104,11 +110,17 @@ export default class Main extends React.Component {
           style={{flex: 1, position: 'absolute'}}
         />
         <ButtonGroup
-          buttons={['Previous', 'History', 'Next']}
+          buttons={
+            this.state.currentIndex === this.state.previousQuestions.length - 1 ? 
+            ['Previous', 'History', 'Generate Next'] : ['Previous', 'History', 'Next']
+          }
           selectedBackgroundColor="blue"
           onPress={this.handleTraversePress}
         />
-        <TouchableOpacity onPress={this.toggleTranslation}>
+        <TouchableOpacity 
+          onPress={this.toggleTranslation}
+          onLongPress={() => this.toggleModal('Hints')}
+        >
           <Card
             containerStyle={styles.card}
             title={!this.state.showTranslation ? `Question #${this.state.currentIndex + 1}` : `Question #${this.state.currentIndex + 1} Translated`}
@@ -126,7 +138,7 @@ export default class Main extends React.Component {
             }
           </Card>
         </TouchableOpacity>
-        <View style={{paddingTop: 10}}>
+        <View style={{paddingTop: 5}}>
           <Button
             raised
             backgroundColor="green"
@@ -136,7 +148,16 @@ export default class Main extends React.Component {
             onPress={this.randomQuestion}
           />
         </View>
-        <View style={{paddingTop: 30}}>
+        <View style={{paddingTop: 5}}>
+          <Button
+            raised
+            backgroundColor="orange"
+            borderRadius={10}
+            title='Go to Google Translate'
+            onPress={() => this.toggleModal('WebView')}
+          />
+        </View>
+        <View style={{paddingTop: 5}}>
           <Button
             raised
             backgroundColor="#6495ED"
@@ -146,11 +167,21 @@ export default class Main extends React.Component {
           />
         </View>
         <ModalHistory 
-          showModalHistory={this.state.showModalHistory}
-          previousQuestions={this.state.previousQuestions} 
-          toggleModalHistory={this.toggleModalHistory}
+          showModalHistory={this.state.showModalHistory} 
+          toggleModal={this.toggleModal}
+          previousQuestions={this.state.previousQuestions}
           traverseQuestions={this.traverseQuestions}
           currentIndex={this.state.currentIndex}
+        />
+        <ModalHints 
+          showModalHints={this.state.showModalHints} 
+          toggleModal={this.toggleModal}
+          previousQuestions={this.state.previousQuestions}
+          currentIndex={this.state.currentIndex}
+        />
+        <ModalWebView 
+          showModalWebView={this.state.showModalWebView}
+          toggleModal={this.toggleModal}
         />
       </View>
     )
@@ -166,7 +197,7 @@ const styles = StyleSheet.create({
   },
   card: {
     width: 300, 
-    height: 275,
+    height: 290,
     backgroundColor:'rgba(52, 52, 52, 0.1)'
   },
   cardText: {

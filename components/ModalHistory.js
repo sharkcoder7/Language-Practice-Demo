@@ -14,21 +14,21 @@ export default class ModalHistory extends React.Component {
         <Button
           raised
           title="Back"
-          onPress={this.props.toggleModalHistory}
+          onPress={() => this.props.toggleModal('History')}
         />
         <ScrollView>
           <List>
             {this.props.previousQuestions && this.props.previousQuestions.map((question, i) => {
               return (
                 <ListItem
-                  key={i}
+                  key={question.id}
                   title={(i + 1) + '  ' + question.question}
                   subtitle={question.translation}
                   underlayColor='#6495ED'
                   containerStyle={i === this.props.currentIndex ? {backgroundColor: '#ADD8E6'} : {}}
                   onPress={() => {
                     this.props.traverseQuestions(i);
-                    this.props.toggleModalHistory();
+                    this.props.toggleModal('History');
                   }}
                 />
               )

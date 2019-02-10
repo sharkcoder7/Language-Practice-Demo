@@ -15,5 +15,109 @@
     "translation": "What would you change about yourself and why?",
     "translation_alt": null,
     "difficulty": "advanced"
+  },
+  {
+    "id": 3,
+    "question": "Où êtes-vous partis pour la derniere fois en vacances?",
+    "question_alt": null,
+    "translation": "Where did you last go on holiday?",
+    "translation_alt": null,
+    "difficulty": "advanced"
+  },
+  {
+    "id": 4,
+    "question": "Combien de pays avez-vous visites?",
+    "question_alt": null,
+    "translation": "How many countries have you been to?",
+    "translation_alt": null,
+    "difficulty": "advanced"
+  },
+  {
+    "id": 5,
+    "question": "Quel a ete le moment le plus embarrassant pour vous?",
+    "question_alt": null,
+    "translation": "What is your most embarrassing moment?",
+    "translation_alt": null,
+    "difficulty": "advanced"
+  },
+  {
+    "id": 6,
+    "question": "Quelle est la meilleure chose qui vous soit arrive cette semaine?",
+    "question_alt": null,
+    "translation": "What is the best thing that happened to you during the past week?",
+    "translation_alt": null,
+    "difficulty": "advanced"
+  },
+  {
+    "id": 7,
+    "question": "Quel a ete le moment le plus embarrassant pour vous?",
+    "question_alt": null,
+    "translation": "What is your most embarrassing moment?",
+    "translation_alt": null,
+    "difficulty": "advanced"
+  },
+  {
+    "id": 8,
+    "question": "Chantez-vous sous la douche?",
+    "question_alt": null,
+    "translation": "Do you sing in the shower?",
+    "translation_alt": null,
+    "difficulty": "advanced"
+  },
+  {
+    "id": 9,
+    "question": "De quoi avez-vous peur?",
+    "question_alt": null,
+    "translation": "What are you scared of?",
+    "translation_alt": null,
+    "difficulty": "advanced"
+  },
+  {
+    "id": 10,
+    "question": "Quel est le pire film que vous ayez regarde?",
+    "question_alt": null,
+    "translation": "What was the worst movie you have ever seen?",
+    "translation_alt": null,
+    "difficulty": "advanced"
+  },
+  {
+    "id": 11,
+    "question": "Avez-vous deja pris de la drogue?",
+    "question_alt": null,
+    "translation": "Have you ever used drugs?",
+    "translation_alt": null,
+    "difficulty": "advanced"
+  },
+  {
+    "id": 12,
+    "question": "As-tu une partenaire?",
+    "question_alt": null,
+    "translation": "Do you have a girlfriend or boyfriend?",
+    "translation_alt": null,
+    "difficulty": "advanced"
+  },
+  {
+    "id": 13,
+    "question": "Quelle est la pire chose que tu as achete?",
+    "question_alt": null,
+    "translation": "What is the worst thing you ever bought?",
+    "translation_alt": null,
+    "difficulty": "advanced"
+  },
+  {
+    "id": 14,
+    "question": "Etes-vous croyants??",
+    "question_alt": null,
+    "translation": "Are you religious?",
+    "translation_alt": null,
+    "difficulty": "advanced"
+  },
+  {
+    "id": 15,
+    "question": "As-tu de tatouages?",
+    "question_alt": null,
+    "translation": "Do you have any tattos?",
+    "translation_alt": null,
+    "difficulty": "advanced"
   }
 ]
